@@ -3,6 +3,8 @@ const http = require('http');
 const port='3000';
 const fs = require('fs');
 
+
+
 homePage=fs.readFileSync('./pages/home.html')
 aboutPage=fs.readFileSync('./pages/about.html')
 errorPage=fs.readFileSync('./pages/error.html')
@@ -23,6 +25,8 @@ const server= http.createServer((req,res)=>{
     }
 
 })
+
+
 
 server.listen(port,()=>{
     console.log(`server is running... http://localhost:${port}`);
