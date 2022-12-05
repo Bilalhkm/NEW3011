@@ -1,15 +1,14 @@
 const express = require('express');
-router= express.Router();
-router
- .route('/')
- .get((req,res)=>{
-    res.sendfile('./book.html');
- })
- .post((req,res)=>{
-    res.sendfile('./bookStoring.html')
- })
- .get('/:id',(req,res)=>{
-    res.sendfile('./singleBook.html');
+routerBook= express.Router();
+
+routerBook.get('/',(req,res)=>{
+    res.sendfile('./pages/books/book.html');
+})
+routerBook.post('/',(req,res)=>{
+    res.sendfile('./pages/books/bookStoring.html')
+})
+routerBook.get('/:id',(req,res)=>{
+    res.sendfile('./pages/books/singleBook.html');
     console.log(req.params.id);
- })
- module.exports=router;
+})
+ module.exports=routerBook;
