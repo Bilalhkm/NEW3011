@@ -5,9 +5,9 @@ const fs = require('fs');
 
 
 
-homePage=fs.readFileSync('./pages/home.html')
-aboutPage=fs.readFileSync('./pages/about.html')
-errorPage=fs.readFileSync('./pages/error.html')
+homePage=fs.readFileSync('./pages/home.html');
+aboutPage=fs.readFileSync('./pages/about.html');
+errorPage=fs.readFileSync('./pages/error.html');
 
 const server= http.createServer((req,res)=>{
     if (req.url == '/'){
@@ -17,11 +17,11 @@ const server= http.createServer((req,res)=>{
     }else if (req.url=='/about') {
         res.statusCode=200;
         //return res.end('<h1>Hello from about</h1>');
-        return res.end(aboutPage)
+        return res.end(aboutPage);
     }else{
-        res.statusCode=404
+        res.statusCode=404;
         //return res.end('<h1>Error 404</h1>')
-        return res.end(errorPage)
+        return res.end(errorPage);
     }
 
 })

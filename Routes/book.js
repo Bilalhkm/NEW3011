@@ -1,14 +1,28 @@
 const express = require('express');
-routerBook= express.Router();
+const routerBook = express.Router();
+const connect = require('../database/db');
 
-routerBook.get('/',(req,res)=>{
-    res.sendfile('./pages/books/book.html');
+routerBook.get('/',async(req,res)=>{
+    
+    res.render('books/bookMain');
 })
-routerBook.post('/',(req,res)=>{
-    res.sendfile('./pages/books/bookStoring.html')
+routerBook.post('/',async(req,res)=>{
+    const db =await connect();
+    const data ={
+        title:'power of consistency',
+        author:'unknown'
+    }
+    await db.collection('book').insertOne(data);
+    res.render('books/bookStoring',{id:req.params.id})
 })
 routerBook.get('/:id',(req,res)=>{
-    res.sendfile('./pages/books/singleBook.html');
+    res.render('books/singleBook',{id:req.params.id});
     console.log(req.params.id);
+})
+routerBook.patch('/:id',(req,res)=>{
+    res.render('books/bookUpdate',{id:req.params.id})
+})
+routerBook.delete('/:id',(req,res)=>{
+    res.render('books/bookDelete',{id:req.params.id})
 })
  module.exports=routerBook;
