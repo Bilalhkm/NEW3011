@@ -3,8 +3,9 @@ const routerBook = express.Router();
 const connect = require('../database/db');
 
 routerBook.get('/',async(req,res)=>{
-    
-    res.render('books/bookMain');
+    const db =await connect();
+    const books =await db.collection('book').find().toArray()
+    res.render('books/bookMain',{booksList:books});
 })
 routerBook.post('/',async(req,res)=>{
     const db =await connect();
@@ -26,3 +27,4 @@ routerBook.delete('/:id',(req,res)=>{
     res.render('books/bookDelete',{id:req.params.id})
 })
  module.exports=routerBook;
+ 
