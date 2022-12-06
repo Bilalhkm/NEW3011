@@ -3,8 +3,11 @@ const app= express();
 const port =3000;
 const index = require('./Routes/index');
 const books = require('./Routes/book');
+const bodyParser = require('body-parser');
 
 app.set('view engine','pug');
+
+app.use(bodyParser.json())
 app.use('/book',books);
 app.use('/',index);
 
