@@ -1,4 +1,4 @@
-const connect = require("../database/db")
+/* const connect = require("../database/db")
 
 const list=async(req,res)=>{
     const db= await connect();
@@ -33,3 +33,4 @@ const deleting =async (req,res)=>{
 }
 
 module.exports={list:list,show:show,add:add,update:update,deleting:deleting }
+ */
