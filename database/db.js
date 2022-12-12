@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+/* const { MongoClient } = require('mongodb');
 
 // Connection URL
 const url = 'mongodb://127.0.0.1:27017';
@@ -14,3 +14,4 @@ async function connect (){
 }
 
 module.exports=connect;
+ */
